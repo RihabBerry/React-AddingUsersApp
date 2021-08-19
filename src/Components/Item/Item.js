@@ -2,9 +2,11 @@ import React from "react";
 import classes from "./Item.module.css";
 
 const Item = (props) => {
+  console.log(props.individual);
+
   return (
-    <li>
-      <p>{props.individual.Name + props.individual.Age}</p>
+    <li key={props.individual.id}>
+      <p>{props.individual.user}</p>
     </li>
   );
 };
