@@ -1,27 +1,25 @@
-import React from "react";
+import { React, useState } from "react";
 import classes from "./Modal.module.css";
 
 const Modal = (props) => {
-  if (!props.show) {
-    return null;
-  }
+  // if (!props.show) {
+  // return null;
+  //  }
+
+  const closeModal = () => {
+    props.closeModal();
+  };
   return (
-    <div className={classes.backdrop}>
+    <div onClick={props.closeModal} className={classes.backdrop}>
       <div className={classes.wrapper}>
         <header className={classes.header}>
-          <p>Title</p>
-          <span>X</span>
+          <p>{props.error.title}</p>
+          <span onClick={props.closeModal}>X</span>
         </header>
         <main className={classes.main}>
-          <p>
-            This is the content of the header hez ndddThis is the content of the
-            header hez ndddThis is the content of the header hez ndddThis is the
-            content of the header hez ndddThis is the content of the header hez
-            ndddThis is the content of the header hez ndddThis is the content of
-            the header hez ndddThis is the content of the header hez nddd
-          </p>
+          <p>{props.error.message}</p>
         </main>
-        <footer className={classes.footer}>
+        <footer onClick={props.closeModal} className={classes.footer}>
           <button>Close</button>
         </footer>
       </div>
