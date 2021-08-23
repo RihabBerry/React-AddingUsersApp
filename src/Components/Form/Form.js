@@ -21,16 +21,19 @@ const Form = (props) => {
   };
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    if (age.trim().length === 0 || name.trim().length === 0) {
-      setError({ title: "Empty age", message: "Empty age not allowded" });
-    }
     if (+age <= 0) {
       setError({
         title: "Null or negatif age",
         message: "Null or negatif age are not allowded",
       });
+      if (age.trim().length === 0 || name.trim().length === 0) {
+        setError({
+          title: "Empty values",
+          message: "Empty values not allowded",
+        });
+      }
     } else {
-      let user = name + age;
+      let user = name + " age " + age;
       props.AddUser(user);
       setName("");
       setAge("");
@@ -39,18 +42,15 @@ const Form = (props) => {
 
   return (
     <Fragment>
-      <button onClick={showModal}>Show Modal</button>
       {error && <Modal closeModal={closeModal} error={error} />}
-      <Card>
-        <div className={classes.container}>
-          <form onSubmit={onSubmitHandler}>
-            <label htmlFor="name">User Name</label>
-            <input onChange={nameHandler} value={name} name="name" id="name" />
-            <label htmlFor="age">User Age</label>
-            <input onChange={ageHandler} value={age} name="age" id="age" />
-            <button type="submit">Add user</button>
-          </form>
-        </div>
+      <Card className={classes.container}>
+        <form onSubmit={onSubmitHandler}>
+          <label htmlFor="name">User Name</label>
+          <input onChange={nameHandler} value={name} name="name" id="name" />
+          <label htmlFor="age">User Age</label>
+          <input onChange={ageHandler} value={age} name="age" id="age" />
+          <button type="submit">Add user</button>
+        </form>
       </Card>
     </Fragment>
   );

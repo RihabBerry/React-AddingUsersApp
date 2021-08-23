@@ -1,28 +1,26 @@
 .container {
   background-color: beige;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  left: 50%;
-  top: 20%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  width: 60%;
+  margin: 2rem auto;
 }
 
 .container input {
+  display: block;
   margin: 15px;
   outline: GRAY;
-  width: 500px;
+  width: 80%;
+  border-radius: 10px;
+  outline: none;
 }
 
 .container button {
-  width: 90px;
-  margin-left: 14px;
-  margin-bottom: 14px;
   padding: 6px;
+  margin-left: auto;
+  display: block;
 }
 .container label {
+  display: block;
   margin-left: 14px;
   margin-top: 14px;
 }
