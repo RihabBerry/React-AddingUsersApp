@@ -2,13 +2,7 @@ import { React, useState } from "react";
 import classes from "./Modal.module.css";
 
 const Modal = (props) => {
-  // if (!props.show) {
-  // return null;
-  //  }
-
-  const closeModal = () => {
-    props.closeModal();
-  };
+  
   return (
     <div onClick={props.closeModal} className={classes.backdrop}>
       <div className={classes.wrapper}>
